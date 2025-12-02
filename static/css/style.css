@@ -1,0 +1,78 @@
+:root {
+    --primary-color: #1a5f7a; /* Deep Teal/Blue - Trustworthy & Professional */
+    --secondary-color: #c7b198; /* Gold/Beige - Heritage & Value */
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-container {
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    padding: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Cover Section Styles */
+#cover {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #2c3e50 100%);
+    color: var(--white);
+}
+
+.cover-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.cover-content .subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.decorative-line {
+    width: 100px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+.date {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Data Box Styles */
+.data-box {
+    background: #f0f4f8;
+    border-right: 5px solid var(--primary-color);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-family: monospace;
+    direction: ltr; /* For JSON display */
+    text-align: left;
+}

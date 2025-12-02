@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير وعي الوقف</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Google Fonts for Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="container">
+        <!-- Section 1: Cover Page -->
+        <section id="cover" class="section-container">
+            {% include 'sections/cover.html' %}
+        </section>
+
+        <!-- Placeholder for future sections -->
+        <!-- 
+        <section id="introduction" class="section-container">
+            {% include 'sections/introduction.html' %}
+        </section> 
+        -->
+        
+        <section id="data-demo" class="section-container">
+             <h2>بيانات تجريبية (Python & JS Integration)</h2>
+             <div id="api-data-display" class="data-box">
+                 جاري تحميل البيانات...
+             </div>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
