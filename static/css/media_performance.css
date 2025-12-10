@@ -1221,25 +1221,37 @@
 
 .analysis-list li {
     position: relative;
-    padding: 0.75rem 0 0.75rem 2rem;
+    padding: 1.25rem 1rem 1.25rem 1rem;
+    padding-right: 3.5rem;
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.9;
     color: var(--digital-ink);
-    border-bottom: 1px solid rgba(0, 80, 47, 0.08);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0, 80, 47, 0.05);
 }
 
 .analysis-list li:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .analysis-list li::before {
     content: '✓';
     position: absolute;
-    right: 0;
-    top: 0.75rem;
-    color: var(--digital-green);
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 0.85rem;
+    width: 24px;
+    height: 24px;
+    background: var(--digital-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Important Note Box */
