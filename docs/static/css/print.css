@@ -1,0 +1,69 @@
+/* =========================================
+   Print and PDF Export Optimization
+   ========================================= */
+
+/* Ensure proper page breaks in print mode */
+@media print {
+
+    /* Force background colors and graphics */
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Each section starts on a new page */
+    #cover,
+    #executive-summary,
+    #theoretical-framework {
+        page-break-after: always;
+    }
+
+    /* Prevent breaking inside cards and boxes */
+    .finding-card,
+    .dimension-card,
+    .challenge-box,
+    .highlight-box {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Keep subsections together when possible */
+    .subsection {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Prevent orphaned headings */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    /* Ensure proper margins for A4 */
+    @page {
+        size: A4;
+        margin: 0;
+        /* Remove default browser margins to handle page content fully */
+    }
+}
+
+/* PDF Mode - Mirror print behavior */
+body.pdf-mode #cover,
+body.pdf-mode #executive-summary,
+body.pdf-mode #theoretical-framework {
+    page-break-after: always;
+}
+
+body.pdf-mode .finding-card,
+body.pdf-mode .dimension-card,
+body.pdf-mode .challenge-box,
+body.pdf-mode .highlight-box,
+body.pdf-mode .subsection {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}

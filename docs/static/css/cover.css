@@ -1,0 +1,224 @@
+/* =========================================
+   Cover Page Styling
+   ========================================= */
+
+:root {
+    --awqaf-green: #00502F;
+    /* Deep Green from Logo */
+    --awqaf-gold: #C6A664;
+    /* Gold from Logo */
+    --text-dark: #333333;
+    --text-light: #666666;
+}
+
+.cover-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distribute Top, Middle, Bottom */
+    align-items: center;
+    min-height: 100%;
+    /* Ensure it fills the A4 page or screen */
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* PDF Mode Specifics */
+body.pdf-mode .cover-container {
+    padding: 20mm;
+    height: 297mm;
+    /* Enforce A4 height */
+}
+
+/* -----------------------------------------
+   Top Section: Partner Logos
+   ----------------------------------------- */
+.cover-middle {
+    /* Renamed in HTML but keeping class for now, this is the Top section */
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.logos-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    opacity: 0.8;
+    /* Slightly subtle to not distract from main logo */
+}
+
+.partner-logo {
+    height: 25px;
+    /* Balanced size */
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    /* Optional: Make partners grayscale for cleaner look, hover to color? */
+    transition: filter 0.3s;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%);
+}
+
+/* -----------------------------------------
+   Middle Section: Hero (Logo + Titles)
+   ----------------------------------------- */
+.cover-top {
+    /* This is the Center section */
+    flex-grow: 1;
+    /* Takes up available space to center vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.main-logo {
+    max-width: 150px;
+    /* Smaller size for icon */
+    width: auto;
+    height: auto;
+    margin-bottom: 2rem;
+    /* Filter removed to show original icon colors */
+    opacity: 1;
+}
+
+.cover-box {
+    background-color: var(--awqaf-green);
+    padding: 3rem 2rem;
+    border-radius: 0;
+    /* Remove radius for full width look if desired, or keep */
+    border-bottom: 8px solid var(--awqaf-gold);
+    box-shadow: 0 15px 40px rgba(0, 80, 47, 0.2);
+    width: 100%;
+    /* Full width */
+    max-width: none;
+    /* Remove max-width restriction */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    box-sizing: border-box;
+    /* Ensure padding doesn't overflow width */
+}
+
+.cover-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+    line-height: 1.4;
+    /* Removed individual box styling */
+}
+
+.cover-subtitle {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    /* White text */
+    font-weight: 500;
+    max-width: 80%;
+    margin: 0 auto;
+    line-height: 1.8;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1.5rem;
+}
+
+/* -----------------------------------------
+   Bottom Section: Actions
+   ----------------------------------------- */
+.cover-bottom {
+    width: 100%;
+    margin-top: auto;
+}
+
+/* -----------------------------------------
+   Buttons (now inside the box)
+   ----------------------------------------- */
+
+.buttons-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.cover-btn {
+    background-color: transparent;
+    color: #fff;
+    /* White text */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    /* Semi-transparent white border */
+    padding: 0.8rem 2.5rem;
+    border-radius: 4px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cover-btn:hover {
+    background-color: #fff;
+    color: var(--awqaf-green);
+    border-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* -----------------------------------------
+   Responsive Adjustments
+   ----------------------------------------- */
+@media (max-width: 768px) {
+    .cover-container {
+        padding: 2rem 1rem;
+        min-height: auto;
+        /* Allow scrolling on mobile */
+    }
+
+    .main-logo {
+        width: 70%;
+        max-width: 300px;
+    }
+
+    .cover-title {
+        font-size: 1.6rem;
+    }
+
+    .cover-subtitle {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+
+    .buttons-row {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cover-btn {
+        width: 100%;
+    }
+}
+
+/* Print Styles for Cover */
+@media print {
+    .cover-container {
+        padding: 20mm !important;
+        height: 297mm !important;
+        /* Enforce A4 height */
+        justify-content: space-between !important;
+    }
+
+    .cover-bottom {
+        display: none !important;
+    }
+}

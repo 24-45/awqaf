@@ -1,0 +1,465 @@
+/* =========================================
+   Case Studies Section Styling
+   ========================================= */
+
+.case-studies {
+    padding: 3rem 4rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Case Study */
+.case-study {
+    margin-bottom: 3rem;
+}
+
+/* Case Header */
+.case-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.case-header.health {
+    background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+}
+
+.case-header.education {
+    background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+}
+
+.case-header.sustainability {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+}
+
+.sector-icon {
+    font-size: 4rem;
+    flex-shrink: 0;
+}
+
+.sector-info {
+    flex: 1;
+}
+
+.sector-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 0.5rem 0;
+}
+
+.sector-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Case Content */
+.case-content {
+    padding: 0 1rem;
+}
+
+.case-intro {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 80, 47, 0.03);
+    border-right: 4px solid var(--awqaf-green);
+    border-radius: 8px;
+}
+
+/* Mechanism & Impact Grid */
+.mechanism-impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.mechanism-box,
+.impact-box {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.mechanism-box {
+    border-top: 4px solid #0ea5e9;
+}
+
+.impact-box {
+    border-top: 4px solid #10b981;
+}
+
+.box-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.mechanism-box h4,
+.impact-box h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin: 0 0 1rem 0;
+}
+
+.mechanism-box p,
+.impact-box p {
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+}
+
+/* Transformation Box */
+.transformation-box {
+    display: flex;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid #fbbf24;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.transform-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.transform-content h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #92400e;
+    margin: 0 0 1rem 0;
+}
+
+.transform-content p {
+    line-height: 1.8;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.old-image {
+    background: rgba(239, 68, 68, 0.15);
+    color: #dc2626;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.new-image {
+    background: rgba(34, 197, 94, 0.15);
+    color: #16a34a;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Universities Grid */
+.universities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.university-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.university-card:hover {
+    border-color: #8b5cf6;
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+    transform: translateY(-4px);
+}
+
+.uni-logo {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.uni-name {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin: 0 0 1rem 0;
+}
+
+.uni-description {
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+}
+
+/* Significance Box */
+.significance-box {
+    display: flex;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid #7dd3fc;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.sig-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.sig-content h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0369a1;
+    margin: 0 0 1rem 0;
+}
+
+.sig-content p {
+    line-height: 1.8;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Sustainability Features */
+.sustainability-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    border-color: #10b981;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
+    transform: translateY(-4px);
+}
+
+.feature-icon-large {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+
+
+.feature-card h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin: 0 0 1rem 0;
+}
+
+.feature-card p {
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+}
+
+/* Future Vision Box */
+.future-vision-box {
+    display: flex;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.vision-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.vision-content h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #15803d;
+    margin: 0 0 1rem 0;
+}
+
+.vision-content p {
+    line-height: 1.8;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Sectors Summary */
+.sectors-summary {
+    background: linear-gradient(135deg, rgba(0, 80, 47, 0.05) 0%, rgba(198, 166, 100, 0.08) 100%);
+    border: 2px solid var(--awqaf-gold);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+}
+
+.summary-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    text-align: center;
+    margin: 0 0 2rem 0;
+}
+
+.sectors-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.sector-comparison-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.sector-comparison-card.health-card {
+    border-top: 4px solid #0ea5e9;
+}
+
+.sector-comparison-card.education-card {
+    border-top: 4px solid #8b5cf6;
+}
+
+.sector-comparison-card.sustainability-card {
+    border-top: 4px solid #10b981;
+}
+
+.comparison-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.sector-comparison-card h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    text-align: center;
+    margin: 0 0 1.5rem 0;
+}
+
+.before-after {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.before,
+.after {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #666;
+}
+
+.before .text {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.after .text {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: var(--awqaf-green);
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Print Styles */
+@media print {
+    .case-studies {
+        padding: 15mm 20mm;
+    }
+
+    .case-study {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .universities-grid,
+    .sustainability-features,
+    .sectors-comparison-grid {
+        break-inside: avoid;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .case-studies {
+        padding: 2rem 1.5rem;
+    }
+
+    .case-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sector-title {
+        font-size: 1.6rem;
+    }
+
+    .mechanism-impact-grid,
+    .universities-grid,
+    .sustainability-features,
+    .sectors-comparison-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .transformation-box,
+    .significance-box,
+    .future-vision-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}

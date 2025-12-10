@@ -1,0 +1,494 @@
+/* =========================================
+   Impact Assessment Section Styling
+   ========================================= */
+
+.impact-assessment {
+    padding: 3rem 4rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Intro Text */
+.intro-text {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 80, 47, 0.05) 0%, rgba(198, 166, 100, 0.08) 100%);
+    border-right: 4px solid var(--awqaf-green);
+    border-radius: 8px;
+}
+
+/* Data Table */
+.data-table-container {
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.table-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.data-table thead {
+    background: linear-gradient(135deg, var(--awqaf-green), #006b3d);
+    color: white;
+}
+
+.data-table th {
+    padding: 1rem;
+    text-align: right;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.data-table td {
+    padding: 1rem;
+    text-align: right;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.data-table tbody tr:hover {
+    background: rgba(0, 80, 47, 0.03);
+}
+
+.stat-value {
+    color: var(--awqaf-green);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.total-row {
+    background: rgba(0, 80, 47, 0.05);
+    font-weight: 700;
+}
+
+.highlight-row {
+    background: linear-gradient(135deg, rgba(198, 166, 100, 0.1) 0%, rgba(198, 166, 100, 0.2) 100%);
+    border-right: 4px solid var(--awqaf-gold);
+}
+
+/* Analysis Box */
+.analysis-box {
+    background: #f8f9fa;
+    border-right: 4px solid var(--awqaf-green);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.analysis-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin-bottom: 1rem;
+}
+
+.analysis-list {
+    list-style: none;
+    padding: 0;
+}
+
+.analysis-list li {
+    padding: 0.75rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+    line-height: 1.8;
+}
+
+.analysis-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: var(--awqaf-green);
+    font-weight: 700;
+}
+
+.highlight-stat {
+    color: var(--awqaf-green);
+    font-weight: 700;
+    background: rgba(198, 166, 100, 0.15);
+    padding: 0 0.3rem;
+    border-radius: 3px;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.metric-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    border-color: var(--awqaf-green);
+    box-shadow: 0 8px 24px rgba(0, 80, 47, 0.12);
+    transform: translateY(-4px);
+}
+
+.metric-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--awqaf-green);
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.metric-detail {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Success Stories */
+.success-stories {
+    margin: 2rem 0;
+}
+
+.stories-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin-bottom: 1.5rem;
+}
+
+.story-card {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.story-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.story-icon {
+    font-size: 2rem;
+}
+
+.story-name {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin: 0;
+}
+
+.story-content {
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+/* Insight Box */
+.insight-box {
+    background: linear-gradient(135deg, rgba(198, 166, 100, 0.1) 0%, rgba(198, 166, 100, 0.2) 100%);
+    border-right: 4px solid var(--awqaf-gold);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.insight-box p {
+    margin: 0;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+/* Highlight Stat Box */
+.highlight-stat-box {
+    background: linear-gradient(135deg, var(--awqaf-green), #006b3d);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin: 2rem 0;
+    box-shadow: 0 8px 24px rgba(0, 80, 47, 0.2);
+}
+
+.big-stat {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.big-stat-label {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Portfolios */
+.portfolios-container {
+    margin: 2rem 0;
+}
+
+.portfolios-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-item {
+    display: flex;
+    gap: 1.5rem;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    border-color: var(--awqaf-green);
+    box-shadow: 0 4px 16px rgba(0, 80, 47, 0.1);
+}
+
+.portfolio-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.portfolio-content {
+    flex: 1;
+}
+
+.portfolio-name {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin: 0 0 0.75rem 0;
+}
+
+.portfolio-content p {
+    margin: 0;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Impact Grid */
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.impact-card {
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+}
+
+.impact-card.quantitative {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-color: #7dd3fc;
+}
+
+.impact-card.qualitative {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-color: #fbbf24;
+}
+
+.impact-card h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin: 0 0 1rem 0;
+}
+
+.impact-stat {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--awqaf-green);
+    margin: 1rem 0;
+}
+
+.impact-card p {
+    line-height: 1.8;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Governance Highlights */
+.governance-highlights {
+    margin: 2rem 0;
+}
+
+.governance-item {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.governance-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.governance-item h4 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--awqaf-green);
+    margin: 0 0 1rem 0;
+    text-align: center;
+}
+
+.governance-item p {
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+}
+
+/* Trust Comparison */
+.trust-comparison {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.trust-stat {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    min-width: 200px;
+}
+
+.trust-stat.positive {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #bbf7d0;
+}
+
+.trust-stat.negative {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+    border: 2px solid #ffcccc;
+}
+
+.trust-value {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.trust-stat.positive .trust-value {
+    color: #16a34a;
+}
+
+.trust-stat.negative .trust-value {
+    color: #dc2626;
+}
+
+.trust-label {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.trust-arrow {
+    font-size: 2rem;
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.trust-insight {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin-top: 1rem;
+}
+
+/* Print Styles */
+@media print {
+    .impact-assessment {
+        padding: 15mm 20mm;
+    }
+
+    .data-table,
+    .metric-card,
+    .story-card,
+    .portfolio-item,
+    .impact-card,
+    .governance-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .subsection {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .impact-assessment {
+        padding: 2rem 1.5rem;
+    }
+
+    .metrics-grid,
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trust-comparison {
+        flex-direction: column;
+    }
+
+    .portfolio-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .big-stat {
+        font-size: 2rem;
+    }
+}
