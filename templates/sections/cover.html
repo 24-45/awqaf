@@ -1,6 +1,31 @@
-<div class="cover-content">
-    <h1>تقرير وعي المجتمع بالوقف</h1>
-    <p class="subtitle">دراسة تحليلية للمجتمع السعودي والخليجي</p>
-    <div class="decorative-line"></div>
-    <p class="date">2024 - 1446</p>
+<div class="cover-container">
+    <!-- Top Section: Partner Logos -->
+    <div class="cover-middle" style="margin-bottom: 2rem;">
+        <div class="logos-row">
+            <img src="{{ url_for('static', filename='images/flagfoaj.svg') }}" alt="Flag" class="partner-logo">
+            <img src="{{ url_for('static', filename='images/march.svg') }}" alt="March" class="partner-logo">
+            <img src="{{ url_for('static', filename='images/24.png') }}" alt="24" class="partner-logo">
+        </div>
+    </div>
+
+    <!-- Middle Section: Main Authority Logo & Titles -->
+    <div class="cover-top">
+        <div class="cover-box">
+            <img src="{{ url_for('static', filename='images/icon.png') }}" alt="General Authority for Awqaf" class="main-logo">
+            <h1 class="cover-title">الوقف في الوعي المجتمعي: من "الصورة النمطية" إلى "الشريك التنموي"</h1>
+            <p class="cover-subtitle">تحليل استراتيجي للمضمون الإعلامي وتشخيص فجوات الصورة الذهنية لدعم مسار التحول المؤسسي 2030</p>
+            
+            <div class="buttons-row">
+                <button onclick="switchView('awareness')" class="cover-btn primary" id="btn-awareness">الوقف في الوعي المجتمعي</button>
+                <button onclick="switchView('digital')" class="cover-btn" id="btn-digital">تقرير الأداء الرقمي</button>
+                <button onclick="switchView('media')" class="cover-btn" id="btn-media">تقرير الأداء الإعلامي</button>
+                <button onclick="switchView('media-image')" class="cover-btn" id="btn-media-image">صورة الأوقاف في الإعلام الرقمي</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Section: Removed as buttons moved up -->
+    <div class="cover-bottom">
+        <!-- Empty or removed, keeping div if layout needs it, but content is moved -->
+    </div>
 </div>

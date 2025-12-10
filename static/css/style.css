@@ -1,7 +1,12 @@
 :root {
-    --primary-color: #1a5f7a; /* Deep Teal/Blue - Trustworthy & Professional */
-    --secondary-color: #c7b198; /* Gold/Beige - Heritage & Value */
+    --primary-color: #1a5f7a;
+    /* Deep Teal/Blue - Trustworthy & Professional */
+    --secondary-color: #c7b198;
+    /* Gold/Beige - Heritage & Value */
     --bg-color: #f9f9f9;
+    /* Light background for Web View */
+    --pdf-bg-color: #525659;
+    /* Dark background for PDF View */
     --text-color: #333;
     --white: #ffffff;
 }
@@ -13,66 +18,204 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    transition: background-color 0.3s ease;
 }
 
+/* =========================================
+   Web View (Default)
+   ========================================= */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 100%;
+    max-width: none;
+    /* Remove max-width constraint */
+    margin: 0;
+    padding: 0;
+    /* Remove padding to go full edge-to-edge */
 }
 
-.section-container {
+.a4-page {
+    /* In Web View, behave like a normal full-width section */
     background: var(--white);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
+    border-radius: 0;
+    /* Remove radius */
+    box-shadow: none;
+    /* Remove shadow */
+    margin-bottom: 0;
+    /* Remove margin between sections if desired, or keep small */
     padding: 40px;
-    overflow: hidden;
     position: relative;
+    width: 100%;
+    /* Full width */
+    min-height: auto;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+    /* Optional separator */
+    overflow: hidden;
 }
 
-/* Cover Section Styles */
+/* Cover adjustments for Web View */
 #cover {
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #2c3e50 100%);
-    color: var(--white);
+    min-height: 80vh;
+    /* Use viewport height instead of fixed mm */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.cover-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-    font-weight: 700;
+/* =========================================
+   PDF View (.pdf-mode) & Print
+   ========================================= */
+body.pdf-mode {
+    background-color: var(--pdf-bg-color);
+    padding: 20px 0;
 }
 
-.cover-content .subtitle {
-    font-size: 1.5rem;
-    opacity: 0.9;
-    margin-bottom: 30px;
+body.pdf-mode .container {
+    max-width: none;
+    padding: 0;
 }
 
-.decorative-line {
-    width: 100px;
-    height: 4px;
-    background-color: var(--secondary-color);
-    margin: 20px auto;
-    border-radius: 2px;
+body.pdf-mode .a4-page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 30px auto;
+    background: var(--white);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    border-radius: 0;
 }
 
-.date {
-    font-size: 1.1rem;
-    color: var(--secondary-color);
-    font-weight: bold;
+@media print {
+    .a4-page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        background: var(--white);
+        box-shadow: none;
+        padding: 0;
+        border-radius: 0;
+        page-break-after: always;
+    }
 }
+
+body.pdf-mode #cover {
+    height: 297mm;
+}
+
+@media print {
+    #cover {
+        height: 297mm;
+    }
+}
+
+/* =========================================
+   Common Styles
+   ========================================= */
 
 /* Data Box Styles */
 .data-box {
     background: #f0f4f8;
     border-right: 5px solid var(--primary-color);
     padding: 20px;
-    margin-top: 20px;
+    margin: 20px;
     border-radius: 5px;
     font-family: monospace;
-    direction: ltr; /* For JSON display */
+    direction: ltr;
+    /* For JSON display */
     text-align: left;
+}
+
+/* Toggle Button */
+#view-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Tajawal', sans-serif;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#view-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: none;
+        padding: 0;
+        margin: 0;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Hide non-printable elements */
+    .no-print,
+    #view-toggle {
+        display: none !important;
+    }
+
+    /* Page breaks between sections */
+    .a4-page {
+        page-break-after: always;
+        page-break-inside: avoid;
+        margin: 0;
+        padding: 20mm 0;
+        /* Add padding to simulate margins if needed, or rely on internal padding */
+        width: 100%;
+        box-shadow: none;
+        border: none;
+    }
+
+    /* Avoid breaking inside important elements */
+    .finding-card,
+    .dimension-card,
+    .challenge-box,
+    .highlight-box,
+    .subsection {
+        page-break-inside: avoid;
+    }
+
+    /* Keep headings with content */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+    }
+}
+
+/* PDF Mode - Apply same page break logic */
+body.pdf-mode .a4-page {
+    page-break-after: always;
+    page-break-inside: avoid;
+}
+
+body.pdf-mode .finding-card,
+body.pdf-mode .dimension-card,
+body.pdf-mode .challenge-box,
+body.pdf-mode .highlight-box,
+body.pdf-mode .subsection {
+    page-break-inside: avoid;
+}
+
+body.pdf-mode h1,
+body.pdf-mode h2,
+body.pdf-mode h3,
+body.pdf-mode h4,
+body.pdf-mode h5,
+body.pdf-mode h6 {
+    page-break-after: avoid;
 }

@@ -1,0 +1,321 @@
+/* =========================================
+   Charts Enhancement Styles
+   ========================================= */
+
+/* Chart Container Improvements */
+.chart-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    height: 500px !important;
+    direction: ltr !important;
+    display: block !important;
+    position: relative !important;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Post Types Daily Chart Container */
+.post-types-chart {
+    width: 100% !important;
+    min-height: 450px !important;
+    max-height: 500px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.post-types-chart > div,
+.post-types-chart .js-plotly-plot {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+}
+
+.post-types-chart .plotly-graph-div {
+    width: 100% !important;
+    height: 450px !important;
+}
+
+.post-types-chart .main-svg {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.chart-container > div {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 auto !important;
+}
+
+.js-plotly-plot .plot-container {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* Force Plotly chart to center and take full width */
+#post-type-trend-root {
+    width: 100% !important;
+    height: 500px !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+#post-type-trend-root .js-plotly-plot {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#post-type-trend-root .plotly-graph-div {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Chart Container Wrapper Overrides */
+.chart-container-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: visible !important;
+}
+
+.chart-container-wrapper .plot-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block;
+}
+
+.chart-container-wrapper .js-plotly-plot {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+}
+
+.chart-container-wrapper .svg-container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Post Type Summary Cards */
+.post-type-summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.post-type-card {
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.post-type-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--card-color, #3498db);
+}
+
+.post-type-card.active {
+    border-color: var(--card-color, #3498db);
+    box-shadow: 0 0 0 2px rgba(var(--card-color-rgb, 52, 152, 219), 0.2);
+}
+
+.post-type-card .card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-type-card .card-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.post-type-card .card-value {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.post-type-card .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.post-type-card .card-percentage {
+    font-weight: 600;
+    color: var(--card-color, #3498db);
+}
+
+.post-type-card .card-separator {
+    color: #d1d5db;
+}
+
+.post-type-card .card-peak {
+    color: #f59e0b;
+    font-weight: 500;
+}
+
+.post-type-card .card-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--card-color, #3498db);
+    transition: width 0.3s ease;
+}
+
+.post-type-card.total-card {
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.post-type-card.total-card .card-value {
+    color: #374151;
+}
+
+/* Post Type Insights */
+.post-type-insights {
+    background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.post-type-insights .insights-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.post-type-insights .insights-list {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.post-type-insights .insight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.post-type-insights .insight-icon {
+    font-size: 1.25rem;
+    min-width: 24px;
+}
+
+.post-type-insights .insight-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #4b5563;
+}
+
+.post-type-insights .insight-highlight {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Chart Status Messages */
+.chart-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    font-size: 1rem;
+    color: #6b7280;
+    background: rgba(249, 250, 251, 0.8);
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+}
+
+.chart-status.error {
+    color: #dc2626;
+    border-color: #fca5a5;
+    background: rgba(254, 242, 242, 0.8);
+}
+
+/* Plotly Chart Overrides */
+.js-plotly-plot .plotly {
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+.js-plotly-plot .plotly .main-svg {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Legend Improvements */
+.js-plotly-plot .legendtext {
+    font-family: 'Tajawal', sans-serif !important;
+    font-size: 11px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 400px !important;
+        padding: 10px;
+    }
+    
+    .post-type-summary-cards {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .post-type-card {
+        padding: 1rem;
+    }
+    
+    .post-type-card .card-value {
+        font-size: 1.5rem;
+    }
+    
+    .post-type-insights {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .chart-container {
+        height: 350px !important;
+    }
+    
+    .post-type-card .card-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .post-type-card .card-separator {
+        display: none;
+    }
+}

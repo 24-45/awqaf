@@ -5,35 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تقرير وعي الوقف</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cover.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/executive_summary.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theoretical_framework.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/impact_assessment.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gulf_comparison.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/case_studies.css') }}?v=4">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/conclusion.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/digital_performance.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media_performance.css') }}?v=2">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/charts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/print.css') }}" media="print">
     <!-- Google Fonts for Arabic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- React & Recharts Dependencies -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://unpkg.com/recharts/umd/Recharts.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 </head>
 <body>
 
     <main class="container">
         <!-- Section 1: Cover Page -->
-        <section id="cover" class="section-container">
+        <section id="cover" class="a4-page">
             {% include 'sections/cover.html' %}
         </section>
 
-        <!-- Placeholder for future sections -->
-        <!-- 
-        <section id="introduction" class="section-container">
-            {% include 'sections/introduction.html' %}
-        </section> 
-        -->
-        
-        <section id="data-demo" class="section-container">
-             <h2>بيانات تجريبية (Python & JS Integration)</h2>
-             <div id="api-data-display" class="data-box">
-                 جاري تحميل البيانات...
-             </div>
-        </section>
+        <!-- View 1: Awareness Report -->
+        <div id="view-awareness">
+            <!-- Section 2: Executive Summary -->
+            <section id="executive-summary" class="a4-page">
+                {% include 'sections/executive_summary.html' %}
+            </section>
+
+            <!-- Section 3: Theoretical Framework -->
+            <section id="theoretical-framework" class="a4-page">
+                {% include 'sections/theoretical_framework.html' %}
+            </section>
+            
+            <!-- Section 4: Impact Assessment -->
+            <section id="impact-assessment" class="a4-page">
+                {% include 'sections/impact_assessment.html' %}
+            </section>
+            
+            <!-- Section 5: Gulf Comparison -->
+            <section id="gulf-comparison" class="a4-page">
+                {% include 'sections/gulf_comparison.html' %}
+            </section>
+            
+            <!-- Section 6: Case Studies -->
+            <section id="case-studies" class="a4-page">
+                {% include 'sections/case_studies.html' %}
+            </section>
+
+            <!-- Section 7: Conclusion -->
+            <section id="conclusion" class="a4-page">
+                {% include 'sections/conclusion.html' %}
+            </section>
+        </div>
+
+        <!-- View 2: Digital Performance Report -->
+        <div id="view-digital-performance" style="display: none;">
+            <section id="digital-performance-content" class="a4-page">
+                {% include 'sections/digital_performance.html' %}
+            </section>
+        </div>
 
     </main>
 
+    <button id="view-toggle">عرض PDF</button>
+    
+    <!-- React Chart Components -->
+    <script src="{{ url_for('static', filename='js/post_type_trend.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/performance_dashboard.js') }}"></script>
+    <script type="text/babel" src="{{ url_for('static', filename='js/daily_activity_chart.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Set awareness button as active by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const awarenessBtn = document.getElementById('btn-awareness');
+            if (awarenessBtn) {
+                awarenessBtn.classList.add('primary');
+            }
+            
+            // Remove primary class from other buttons
+            const otherBtns = document.querySelectorAll('.cover-btn:not(#btn-awareness)');
+            otherBtns.forEach(btn => btn.classList.remove('primary'));
+        });
+
+        // Handle navigation
+        function switchView(view) {
+            if (view === 'awareness') {
+                window.location.href = '/';
+            } else if (view === 'digital') {
+                window.location.href = '/digital-performance-report';
+            } else if (view === 'media') {
+                window.location.href = '/media-performance-report';
+            }
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/post_types_analysis.js') }}"></script>
 </body>
 </html>

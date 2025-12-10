@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير الأداء الإعلامي</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cover.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/executive_summary.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theoretical_framework.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/impact_assessment.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gulf_comparison.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/case_studies.css') }}?v=4">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/conclusion.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media_performance.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/charts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/print.css') }}" media="print">
+    <!-- Google Fonts for Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Cover Page -->
+        <section class="a4-page" id="cover">
+            {% include 'sections/cover.html' %}
+        </section>
+
+        <!-- Media Performance Report -->
+        <section class="a4-page" id="media-performance">
+            {% include 'sections/media_performance.html' %}
+        </section>
+    </div>
+
+    <!-- PDF Toggle Button -->
+    <button id="view-toggle" class="pdf-toggle">
+        <span class="toggle-text">عرض PDF</span>
+    </button>
+
+    <!-- PDF Toggle Button -->
+    <button id="view-toggle" class="pdf-toggle">
+        <span class="toggle-text">عرض PDF</span>
+    </button>
+
+    <!-- Load Plotly.js for charts -->
+    <script src="https://cdn.plot.ly/plotly-2.25.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="{{ url_for('static', filename='js/performance_dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/post_type_trend.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/daily_activity_chart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/post_types_analysis.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sentiment_breakdown.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/news_mentions_chart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Show media performance by default
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set media button as active
+            const mediaBtn = document.getElementById('btn-media');
+            if (mediaBtn) {
+                mediaBtn.classList.add('primary');
+            }
+            
+            // Remove primary class from other buttons
+            const otherBtns = document.querySelectorAll('.cover-btn:not(#btn-media)');
+            otherBtns.forEach(btn => btn.classList.remove('primary'));
+        });
+
+        // Handle navigation
+        function switchView(view) {
+            if (view === 'awareness') {
+                window.location.href = '/';
+            } else if (view === 'digital') {
+                window.location.href = '/digital-performance-report';
+            } else if (view === 'media') {
+                window.location.href = '/media-performance-report';
+            }
+        }
+    </script>
+</body>
+</html>
