@@ -811,13 +811,23 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    color: white;
 }
 
 .digital-transformation-box p {
     font-size: 1.05rem;
     line-height: 1.7;
     margin: 0;
-    opacity: 0.95;
+    color: white;
+}
+
+.digital-transformation-box .body-text {
+    color: white !important;
+}
+
+.digital-transformation-box .term {
+    color: var(--awqaf-gold) !important;
+    font-weight: 700;
 }
 
 /* Final Insight */
