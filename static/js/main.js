@@ -22,17 +22,21 @@ document.addEventListener('DOMContentLoaded', function () {
         // Show loading overlay
         showTransitionOverlay();
         
+        // Detect if running on GitHub Pages or local
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const basePath = isGitHubPages ? '/awqaf' : '';
+        
         // Delay navigation slightly for effect
         setTimeout(() => {
             // Handle navigation between different reports
             if (viewName === 'awareness') {
-                window.location.href = '/';
+                window.location.href = isGitHubPages ? basePath + '/index.html' : '/';
             } else if (viewName === 'digital') {
-                window.location.href = '/digital-performance-report';
+                window.location.href = basePath + '/digital-performance-report.html';
             } else if (viewName === 'media') {
-                window.location.href = '/media-performance-report';
+                window.location.href = basePath + '/media-performance-report.html';
             } else if (viewName === 'media-image') {
-                window.location.href = '/media-image-report';
+                window.location.href = basePath + '/media-image-report.html';
             }
         }, 400);
         
