@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Detect if running on GitHub Pages or local
         const isGitHubPages = window.location.hostname.includes('github.io');
         const basePath = isGitHubPages ? '/awqaf' : '';
+        const htmlExt = isGitHubPages ? '.html' : '';
         
         // Delay navigation slightly for effect
         setTimeout(() => {
@@ -32,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
             if (viewName === 'awareness') {
                 window.location.href = isGitHubPages ? basePath + '/index.html' : '/';
             } else if (viewName === 'digital') {
-                window.location.href = basePath + '/digital-performance-report.html';
+                window.location.href = basePath + '/digital-performance-report' + htmlExt;
             } else if (viewName === 'media') {
-                window.location.href = basePath + '/media-performance-report.html';
+                window.location.href = basePath + '/media-performance-report' + htmlExt;
             } else if (viewName === 'media-image') {
-                window.location.href = basePath + '/media-image-report.html';
+                window.location.href = basePath + '/media-image-report' + htmlExt;
             }
         }, 400);
         

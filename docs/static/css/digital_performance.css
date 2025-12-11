@@ -128,6 +128,41 @@
     text-align: justify;
 }
 
+/* Methodology Reference Inline */
+.methodology-ref-inline {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(42, 98, 63, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border-right: 3px solid var(--digital-forest);
+}
+
+.methodology-ref-inline-icon {
+    font-size: 1.25rem;
+}
+
+.methodology-ref-inline p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+    flex: 1;
+}
+
+.methodology-ref-inline-link {
+    color: var(--digital-forest);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.methodology-ref-inline-link:hover {
+    color: var(--digital-moss);
+    text-decoration: underline;
+}
+
 /* Chart Sections */
 .chart-section {
     background: linear-gradient(145deg, #ffffff 0%, #f8f5ed 100%);

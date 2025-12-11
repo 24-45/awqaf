@@ -205,3 +205,321 @@
         font-size: 1.2rem;
     }
 }
+
+/* =========================================
+   منهجية تحليل المضمون الإعلامي - Framework Section
+   ========================================= */
+
+.methodology-framework-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 2px solid rgba(0, 80, 47, 0.1);
+}
+
+.methodology-framework-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
+.methodology-framework-intro {
+    display: flex;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    border-right: 5px solid var(--awqaf-green);
+    margin-bottom: 2rem;
+}
+
+.framework-intro-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.framework-intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.reports-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.report-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 80, 47, 0.1);
+}
+
+.report-icon {
+    font-size: 1.25rem;
+}
+
+.report-name {
+    color: var(--awqaf-green);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.methodology-framework-compact {
+    background: linear-gradient(145deg, rgba(247, 243, 232, 0.6) 0%, rgba(255, 255, 255, 0.8) 100%);
+    border: 2px solid rgba(0, 80, 47, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    border-right: 5px solid var(--awqaf-green);
+}
+
+.methodology-framework-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.discussion-icon {
+    margin-left: 0.5rem;
+}
+
+.methodology-framework-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.framework-method-box {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border-top: 4px solid;
+}
+
+.framework-method-box.quantitative {
+    border-top-color: var(--awqaf-green);
+}
+
+.framework-method-box.qualitative {
+    border-top-color: var(--awqaf-gold);
+}
+
+.framework-method-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.framework-method-icon {
+    font-size: 1.5rem;
+}
+
+.framework-method-header h4 {
+    margin: 0;
+    color: var(--awqaf-green);
+    font-size: 1.15rem;
+}
+
+.framework-method-items {
+    list-style: disc;
+    padding-right: 1.5rem;
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.framework-method-items li {
+    margin-bottom: 0.5rem;
+}
+
+.framework-method-items li strong {
+    color: #1a4d2e;
+}
+
+/* مخطط المضمون الإعلامي */
+.framework-matrix-container {
+    background: linear-gradient(135deg, #f0f9f4 0%, #e8f5ec 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.framework-matrix {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.framework-y-label {
+    writing-mode: vertical-rl;
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.framework-matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    width: 320px;
+    height: 280px;
+    position: relative;
+    background: #f8faf9;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.framework-quadrant {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.framework-quadrant:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.framework-quadrant-label {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.framework-quadrant.enhance {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.framework-quadrant.focus {
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.framework-quadrant.correct {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.framework-quadrant.improve {
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.framework-matrix-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #0d9488, #0f766e);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 20px rgba(13, 148, 136, 0.4);
+    border: 4px solid rgba(255, 255, 255, 0.9);
+    z-index: 10;
+}
+
+.framework-matrix-center span {
+    line-height: 1.3;
+}
+
+.framework-x-label {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.methodology-framework-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, rgba(222, 197, 139, 0.15) 0%, rgba(247, 243, 232, 0.8) 100%);
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    border: 1px solid var(--awqaf-gold);
+    margin-top: 1.5rem;
+}
+
+.framework-note-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.methodology-framework-note p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+}
+
+/* Responsive for framework */
+@media (max-width: 768px) {
+    .methodology-framework-intro {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .methodology-framework-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .reports-list {
+        justify-content: center;
+    }
+    
+    .framework-matrix-grid {
+        width: 280px;
+        height: 240px;
+    }
+    
+    .framework-matrix-center {
+        width: 80px;
+        height: 80px;
+        font-size: 0.8rem;
+    }
+}
