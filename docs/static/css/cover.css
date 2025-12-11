@@ -166,6 +166,21 @@ body.pdf-mode .cover-container {
     font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
 }
 
 .cover-btn:hover {
@@ -173,6 +188,39 @@ body.pdf-mode .cover-container {
     color: var(--awqaf-green);
     border-color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cover-btn:active {
+    transform: scale(0.95);
+}
+
+.cover-btn.clicked {
+    animation: btnClick 0.6s ease;
+}
+
+.cover-btn.primary {
+    background-color: var(--awqaf-gold);
+    color: var(--awqaf-green);
+    border-color: var(--awqaf-gold);
+    box-shadow: 0 4px 15px rgba(198, 166, 100, 0.4);
+}
+
+.cover-btn.primary:hover {
+    background-color: #d4b874;
+    border-color: #d4b874;
+}
+
+@keyframes btnClick {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.92);
+        box-shadow: 0 2px 8px rgba(198, 166, 100, 0.6);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* -----------------------------------------
