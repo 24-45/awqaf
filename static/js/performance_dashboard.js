@@ -166,7 +166,10 @@
         };
     };
 
-    const fetchMetric = (metric) => fetch(`/static/data/${metric.file}?cache=${Date.now()}`)
+    // Helper function to get base path for GitHub Pages
+    const getBasePath = () => window.location.hostname.includes('github.io') ? '/awqaf' : '';
+
+    const fetchMetric = (metric) => fetch(getBasePath() + `/static/data/${metric.file}?cache=${Date.now()}`)
         .then((response) => {
             if (!response.ok) throw new Error(`تعذر تحميل ملف ${metric.label}`);
             return response.text();

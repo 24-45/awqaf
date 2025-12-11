@@ -85,13 +85,67 @@ document.addEventListener('DOMContentLoaded', () => {
         peakModal.classList.add('active');
     };
 
-    fetch('/api/news-mentions')
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('تعذر تحميل بيانات النشر الصحفي');
+    // Helper function to get base path for GitHub Pages
+    const getBasePath = () => window.location.hostname.includes('github.io') ? '/awqaf' : '';
+
+    // Function to parse CSV and create payload structure
+    const parseCSVToPayload = (csvText) => {
+        const lines = csvText.trim().split('\n');
+        const series = [];
+        let maxCount = 0;
+        let maxDate = '';
+        let totalCount = 0;
+
+        for (let i = 1; i < lines.length; i++) {
+            const parts = lines[i].split(',');
+            if (parts.length >= 2) {
+                const dateStr = parts[0].replace(/"/g, '').split(' ')[0];
+                const count = parseInt(parts[1]) || 0;
+                series.push({ date: dateStr, count });
+                totalCount += count;
+                if (count > maxCount) {
+                    maxCount = count;
+                    maxDate = dateStr;
+                }
             }
-            return response.json();
-        })
+        }
+
+        // Find top peaks (top 3 days with highest counts)
+        const sortedByCount = [...series].sort((a, b) => b.count - a.count);
+        const topPeaks = sortedByCount.slice(0, 3).map(item => ({
+            date: item.date,
+            label: formatDay(item.date),
+            count: item.count,
+            title: `ذروة النشر`,
+            description: `تم نشر ${item.count} خبر في هذا اليوم`
+        }));
+
+        return {
+            series,
+            summary: { total: totalCount, average: Math.round(totalCount / series.length), peak: maxCount },
+            top_peaks: topPeaks,
+            top_months: [],
+            top_topics: [],
+            top_newspapers: []
+        };
+    };
+
+    // Try API first, fallback to CSV
+    const loadData = async () => {
+        try {
+            const response = await fetch('/api/news-mentions');
+            if (!response.ok) throw new Error('API not available');
+            return await response.json();
+        } catch (e) {
+            // Fallback to CSV
+            const csvResponse = await fetch(getBasePath() + '/static/data/mentions_trend.csv');
+            if (!csvResponse.ok) throw new Error('تعذر تحميل بيانات النشر الصحفي');
+            const csvText = await csvResponse.text();
+            return parseCSVToPayload(csvText);
+        }
+    };
+
+    loadData()
         .then((payload) => {
             const {
                 series,

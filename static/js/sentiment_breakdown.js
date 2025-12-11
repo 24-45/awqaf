@@ -5,7 +5,10 @@
 (function () {
     'use strict';
 
-    const DATA_URL = '/static/data/sentiment_breakdown.csv';
+    // Helper function to get base path for GitHub Pages
+    const getBasePath = () => window.location.hostname.includes('github.io') ? '/awqaf' : '';
+
+    const DATA_URL = getBasePath() + '/static/data/sentiment_breakdown.csv';
     const CHART_ID = 'sentiment-breakdown-chart';
     const SENTIMENT_LABELS = {
         positive: 'إيجابي',

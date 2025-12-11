@@ -6,6 +6,9 @@
 (function() {
     'use strict';
 
+    // Helper function to get base path for GitHub Pages
+    const getBasePath = () => window.location.hostname.includes('github.io') ? '/awqaf' : '';
+
     // Store chart reference and data globally for interactivity
     let chartInstance = null;
     let chartData = null;
@@ -16,7 +19,7 @@
     async function loadPostTypesData() {
         try {
             console.log('Loading post types data...');
-            const response = await fetch('/static/data/post_type_trend.csv');
+            const response = await fetch(getBasePath() + '/static/data/post_type_trend.csv');
             console.log('Response status:', response.status);
             const csvText = await response.text();
             console.log('CSV text length:', csvText.length);

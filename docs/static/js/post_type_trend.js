@@ -1,4 +1,7 @@
 (() => {
+    // Helper function to get base path for GitHub Pages
+    const getBasePath = () => window.location.hostname.includes('github.io') ? '/awqaf' : '';
+
     const SERIES_CONFIG = [
         { key: 'Original Posts', label: 'منشورات الحساب', color: '#3498db', icon: '📝', description: 'المحتوى الأصلي المنشور' },
         { key: 'Reposts', label: 'إعادات النشر', color: '#e74c3c', icon: '🔄', description: 'المحتوى المُعاد نشره' },
@@ -605,7 +608,7 @@
     // Fetch and render
     showStatus('جارٍ تحميل البيانات...');
     
-    fetch('/static/data/fromawqaf_ksa.csv?cache=' + Date.now())
+    fetch(getBasePath() + '/static/data/fromawqaf_ksa.csv?cache=' + Date.now())
         .then((res) => {
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             return res.text();
