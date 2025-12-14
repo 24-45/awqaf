@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التقرير الكامل - PDF</title>
+    
+    <!-- All External CSS for Full Content -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/executive_summary_report.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/executive_summary.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/digital_performance.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media_performance.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media_image.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/charts.css') }}">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           CSS VARIABLES
+           ========================================= */
+        :root {
+            --awqaf-green: #00502F;
+            --awqaf-gold: #C6A664;
+            --digital-green: #00502F;
+            --digital-gold: #C6A664;
+            --digital-forest: #003d24;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            direction: rtl;
+        }
+        
+        /* =========================================
+           PRINT CONTROLS
+           ========================================= */
+        .print-controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10000;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .print-btn {
+            background: var(--awqaf-green);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            background: #006838;
+            transform: translateY(-2px);
+        }
+        
+        .back-btn {
+            background: #6b7280;
+        }
+        
+        .back-btn:hover {
+            background: #4b5563;
+        }
+        
+        /* =========================================
+           FULL REPORT CONTAINER
+           ========================================= */
+        .full-report-container {
+            max-width: 1200px;
+            margin: 80px auto 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* =========================================
+           SECTION DIVIDER
+           ========================================= */
+        .section-divider {
+            background: linear-gradient(135deg, var(--awqaf-green) 0%, #006838 50%, #003d24 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            min-height: 300px;
+            margin: 60px 0 40px 0;
+            border-radius: 16px;
+            border: 4px solid var(--awqaf-gold);
+            overflow: hidden;
+            page-break-before: always;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid rgba(198, 166, 100, 0.5);
+            border-radius: 12px;
+        }
+        
+        .divider-content {
+            position: relative;
+            z-index: 10;
+            padding: 40px;
+        }
+        
+        .divider-logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            margin-bottom: 20px;
+        }
+        
+        .divider-number {
+            font-size: 1rem;
+            color: var(--awqaf-gold);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        
+        .divider-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .divider-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .divider-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .divider-line {
+            width: 70px;
+            height: 2px;
+            background: var(--awqaf-gold);
+        }
+        
+        .divider-diamond {
+            width: 10px;
+            height: 10px;
+            background: var(--awqaf-gold);
+            transform: rotate(45deg);
+        }
+        
+        /* =========================================
+           SECTION CONTENT WRAPPER
+           ========================================= */
+        .section-content-wrapper {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+        }
+        
+        /* Override hero sections to be smaller in PDF */
+        .section-content-wrapper .study-hero,
+        .section-content-wrapper .hero-section {
+            display: none !important;
+        }
+        
+        /* =========================================
+           PRINT STYLES
+           ========================================= */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 15mm;
+            }
+            
+            body {
+                background: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .print-controls {
+                display: none !important;
+            }
+            
+            .full-report-container {
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: none !important;
+            }
+            
+            .section-divider {
+                page-break-before: always !important;
+                break-before: page !important;
+                min-height: 250px !important;
+                margin: 0 !important;
+            }
+            
+            .section-content-wrapper {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 20px !important;
+            }
+        }
+        
+        /* =========================================
+           MOBILE RESPONSIVE
+           ========================================= */
+        @media screen and (max-width: 768px) {
+            .print-controls {
+                flex-direction: column;
+                left: 10px;
+                right: 10px;
+            }
+            
+            .print-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .full-report-container {
+                margin-top: 120px;
+                padding: 0 10px;
+            }
+            
+            .section-divider {
+                min-height: 200px;
+            }
+            
+            .divider-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-content-wrapper {
+                padding: 20px;
+            }
+        }
+        
+        /* =========================================
+           CONTENT OVERRIDES FOR PDF VIEW
+           ========================================= */
+        .pdf-content .section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: #f8faf9;
+            border-radius: 5px;
+            border-right: 4px solid var(--awqaf-green);
+        }
+        
+        .pdf-content .highlight {
+            background: rgba(0, 80, 47, 0.1);
+            color: var(--awqaf-green);
+            padding: 1px 3px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Print Controls -->
+    <div class="print-controls">
+        <button class="print-btn" onclick="window.print()">
+            <span>🖨️</span>
+            <span>طباعة PDF</span>
+        </button>
+        <button class="print-btn back-btn" onclick="window.location.href='/'">
+            <span>←</span>
+            <span>العودة</span>
+        </button>
+    </div>
+
+    <!-- Full Report Container -->
+    <div class="full-report-container">
+        
+        <!-- ==================== غلاف التقرير ==================== -->
+        <div class="section-divider" style="margin-top: 0;">
+            <div class="divider-content">
+                <div class="divider-logo">
+                    <img src="{{ url_for('static', filename='images/icon.png') }}" alt="شعار الأوقاف">
+                </div>
+                <div class="divider-number">التقرير الشامل</div>
+                <h1 class="divider-title">تحليل الصورة الإعلامية للأوقاف</h1>
+                <p class="divider-subtitle">Media Image Analysis Report</p>
+                <div class="divider-decoration">
+                    <span class="divider-line"></span>
+                    <span class="divider-diamond"></span>
+                    <span class="divider-line"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== القسم الأول: الملخص التنفيذي ==================== -->
+        <div class="section-divider">
+            <div class="divider-content">
+                <div class="divider-logo">
+                    <img src="{{ url_for('static', filename='images/icon.png') }}" alt="شعار الأوقاف">
+                </div>
+                <div class="divider-number">القسم الأول</div>
+                <h1 class="divider-title">الملخص التنفيذي</h1>
+                <p class="divider-subtitle">Executive Summary</p>
+                <div class="divider-decoration">
+                    <span class="divider-line"></span>
+                    <span class="divider-diamond"></span>
+                    <span class="divider-line"></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- محتوى الملخص التنفيذي الكامل -->
+        <div class="section-content-wrapper">
+            {% include 'sections/executive_summary.html' %}
+        </div>
+
+        <!-- ==================== القسم الثاني: الأداء الرقمي ==================== -->
+        <div class="section-divider">
+            <div class="divider-content">
+                <div class="divider-logo">
+                    <img src="{{ url_for('static', filename='images/icon.png') }}" alt="شعار الأوقاف">
+                </div>
+                <div class="divider-number">القسم الثاني</div>
+                <h1 class="divider-title">تقرير الأداء الرقمي</h1>
+                <p class="divider-subtitle">Digital Performance Report</p>
+                <div class="divider-decoration">
+                    <span class="divider-line"></span>
+                    <span class="divider-diamond"></span>
+                    <span class="divider-line"></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- محتوى الأداء الرقمي الكامل -->
+        <div class="section-content-wrapper">
+            {% include 'sections/digital_performance.html' %}
+        </div>
+
+        <!-- ==================== القسم الثالث: الأداء الإعلامي ==================== -->
+        <div class="section-divider">
+            <div class="divider-content">
+                <div class="divider-logo">
+                    <img src="{{ url_for('static', filename='images/icon.png') }}" alt="شعار الأوقاف">
+                </div>
+                <div class="divider-number">القسم الثالث</div>
+                <h1 class="divider-title">تقرير الأداء الإعلامي</h1>
+                <p class="divider-subtitle">Media Performance Report</p>
+                <div class="divider-decoration">
+                    <span class="divider-line"></span>
+                    <span class="divider-diamond"></span>
+                    <span class="divider-line"></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- محتوى الأداء الإعلامي الكامل -->
+        <div class="section-content-wrapper">
+            {% include 'sections/media_performance.html' %}
+        </div>
+
+        <!-- ==================== القسم الرابع: الوقف في الوعي المجتمعي ==================== -->
+        <div class="section-divider">
+            <div class="divider-content">
+                <div class="divider-logo">
+                    <img src="{{ url_for('static', filename='images/icon.png') }}" alt="شعار الأوقاف">
+                </div>
+                <div class="divider-number">القسم الرابع</div>
+                <h1 class="divider-title">الوقف في الوعي المجتمعي</h1>
+                <p class="divider-subtitle">Waqf in Public Awareness</p>
+                <div class="divider-decoration">
+                    <span class="divider-line"></span>
+                    <span class="divider-diamond"></span>
+                    <span class="divider-line"></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- محتوى الصورة الإعلامية الكامل -->
+        <div class="section-content-wrapper">
+            {% include 'sections/media_image.html' %}
+        </div>
+
+    </div>
+
+    <!-- Chart.js للرسوم البيانية -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- JavaScript Files for Interactive Content -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/performance_dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/post_type_trend.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/daily_activity_chart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/news_mentions_chart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sentiment_breakdown.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/post_types_analysis.js') }}"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Full Report PDF loaded - All content included');
+        });
+    </script>
+</body>
+</html>

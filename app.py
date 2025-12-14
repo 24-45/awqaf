@@ -25,6 +25,10 @@ def media_performance_report():
 def media_image_report():
     return render_template('media_image_report.html')
 
+@app.route('/full-report-pdf')
+def full_report_pdf():
+    return render_template('full_report_pdf.html')
+
 @app.route('/api/data')
 def get_data():
     # Placeholder for Python data processing

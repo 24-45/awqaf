@@ -221,15 +221,147 @@
     opacity: 0.9;
 }
 
-/* Challenge Highlight */
+/* Subsection Title */
+.subsection-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--exec-green);
+    margin: 0 0 1.25rem 0;
+}
+
+.subsection-title.warning-title {
+    color: var(--exec-orange);
+}
+
+.subsection-icon {
+    font-size: 1.5rem;
+}
+
+/* Stakeholders Section */
+.stakeholders-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px dashed rgba(0, 80, 47, 0.15);
+}
+
+.stakeholders-intro {
+    font-size: 1.05rem;
+    color: #475569;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.stakeholders-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+.stakeholder-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1.25rem;
+    box-shadow: var(--exec-shadow-sm);
+    border: 1px solid rgba(0, 80, 47, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stakeholder-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--exec-shadow-md);
+    border-color: var(--exec-green);
+}
+
+.stakeholder-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.stakeholder-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--exec-green);
+    margin: 0 0 0.5rem 0;
+}
+
+.stakeholder-card p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Strategic Problem Section */
+.strategic-problem-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fef3c7 0%, #fff7ed 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(234, 88, 12, 0.2);
+}
+
+.problem-intro {
+    margin-bottom: 1.5rem;
+}
+
+.problem-intro p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #78350f;
+}
+
+.highlight-warning {
+    background: linear-gradient(to bottom, transparent 60%, rgba(234, 88, 12, 0.25) 60%);
+    font-weight: 600;
+}
+
+.problems-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.problem-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1.25rem;
+    border-right: 4px solid var(--exec-orange);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.problem-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.problem-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #92400e;
+    margin: 0 0 0.5rem 0;
+}
+
+.problem-card p {
+    font-size: 0.9rem;
+    color: #78350f;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Challenge Highlight - Updated for Opportunity */
 .challenge-highlight {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
-    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
     border-radius: 16px;
     padding: 1.75rem;
-    border-right: 5px solid var(--exec-orange);
+    border-right: 5px solid var(--exec-green);
+    margin-top: 2rem;
 }
 
 .challenge-highlight .challenge-icon {
@@ -240,15 +372,392 @@
 .challenge-highlight h4 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--exec-orange);
+    color: var(--exec-green);
     margin: 0 0 0.5rem 0;
 }
 
 .challenge-highlight p {
     font-size: 1rem;
     line-height: 1.8;
-    color: #92400e;
+    color: #065f46;
     margin: 0;
+}
+
+/* Responsive for Stakeholders and Problems */
+@media (max-width: 992px) {
+    .stakeholders-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .problems-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .stakeholders-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   خطة العيّنة - Sampling Plan Styles
+   ========================================= */
+
+/* Sampling Intro */
+.sampling-intro {
+    margin-bottom: 2.5rem;
+}
+
+.sampling-intro-card {
+    display: flex;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(0, 80, 47, 0.15);
+}
+
+.sampling-intro-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.sampling-intro-content h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--exec-green);
+    margin: 0 0 0.75rem 0;
+}
+
+.sampling-intro-content p {
+    font-size: 1.05rem;
+    color: #334155;
+    line-height: 1.8;
+    margin: 0 0 1rem 0;
+}
+
+.source-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.source-badge .badge-icon {
+    font-size: 1.1rem;
+}
+
+.x-badge {
+    background: #1a1a2e;
+    color: white;
+}
+
+.press-badge {
+    background: var(--exec-green);
+    color: white;
+}
+
+/* Subsection Title Small */
+.subsection-title-sm {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--exec-green);
+    margin: 0 0 1rem 0;
+}
+
+/* Geographic Section */
+.geographic-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: #fafafa;
+    border-radius: 12px;
+}
+
+.geographic-text {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.platform-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: var(--exec-shadow-sm);
+    border: 1px solid #e2e8f0;
+}
+
+.platform-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.platform-card h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--exec-green);
+    margin: 0 0 0.75rem 0;
+}
+
+.platform-card ul {
+    margin: 0;
+    padding-right: 1.25rem;
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* Sampling Table */
+.sampling-table-section {
+    margin-bottom: 2.5rem;
+}
+
+.sampling-table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: var(--exec-shadow-md);
+}
+
+.sampling-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 0.9rem;
+}
+
+.sampling-table thead {
+    background: linear-gradient(135deg, var(--exec-green) 0%, var(--exec-green-light) 100%);
+    color: white;
+}
+
+.sampling-table th {
+    padding: 1rem;
+    text-align: right;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.sampling-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+}
+
+.sampling-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.source-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.source-icon {
+    font-size: 1.25rem;
+}
+
+.sample-size {
+    font-size: 1.1rem;
+    color: var(--exec-green);
+}
+
+.x-row .source-cell {
+    color: #1a1a2e;
+}
+
+.press-row .source-cell {
+    color: var(--exec-green);
+}
+
+/* Selection Criteria Section */
+.selection-criteria-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(37, 99, 235, 0.15);
+}
+
+.criteria-content p {
+    font-size: 1rem;
+    color: #334155;
+    margin: 0 0 1rem 0;
+}
+
+.keywords-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.keyword-tag {
+    display: inline-block;
+    background: white;
+    color: var(--exec-blue);
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.content-types h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--exec-green);
+    margin: 0 0 0.75rem 0;
+}
+
+.content-types-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.content-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.type-icon {
+    font-size: 1.1rem;
+}
+
+/* Importance Section */
+.importance-section {
+    margin-bottom: 2rem;
+}
+
+.importance-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.importance-card {
+    border-radius: 14px;
+    padding: 1.5rem;
+}
+
+.x-importance {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+    color: white;
+}
+
+.press-importance {
+    background: linear-gradient(135deg, var(--exec-green) 0%, var(--exec-green-light) 100%);
+    color: white;
+}
+
+.importance-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.importance-icon {
+    font-size: 1.75rem;
+}
+
+.importance-card h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.importance-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+    opacity: 0.95;
+}
+
+.comparison-note {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.comparison-note .note-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.comparison-note p {
+    font-size: 1rem;
+    color: #78350f;
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* Responsive for Sampling Plan */
+@media (max-width: 992px) {
+    .sampling-intro-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .source-badges {
+        justify-content: center;
+    }
+    
+    .platforms-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .importance-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .content-types-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .sampling-table {
+        font-size: 0.8rem;
+    }
+    
+    .sampling-table th,
+    .sampling-table td {
+        padding: 0.75rem 0.5rem;
+    }
 }
 
 /* Methodology Section */
