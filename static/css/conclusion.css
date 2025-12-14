@@ -649,7 +649,7 @@
     color: var(--awqaf-green);
     font-size: 1.2rem;
     font-weight: bold;
-    transform: rotate(-90deg);
+    transform: rotate(90deg);
 }
 
 .matrix-y-axis .axis-label {
