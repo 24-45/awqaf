@@ -38,6 +38,7 @@ def build_static_site():
     # Pages to render
     pages = [
         ('index.html', 'index.html'),
+        ('executive_summary_report.html', 'executive-summary.html'),
         ('digital_performance_report.html', 'digital-performance-report.html'),
         ('media_performance_report.html', 'media-performance-report.html'),
         ('media_image_report.html', 'media-image-report.html'),
@@ -52,6 +53,7 @@ def build_static_site():
             
             # Fix navigation links for static site
             html_content = html_content.replace("window.location.href = '/'", "window.location.href = 'index.html'")
+            html_content = html_content.replace("window.location.href = '/executive-summary'", "window.location.href = 'executive-summary.html'")
             html_content = html_content.replace("window.location.href = '/digital-performance-report'", "window.location.href = 'digital-performance-report.html'")
             html_content = html_content.replace("window.location.href = '/media-performance-report'", "window.location.href = 'media-performance-report.html'")
             html_content = html_content.replace("window.location.href = '/media-image-report'", "window.location.href = 'media-image-report.html'")

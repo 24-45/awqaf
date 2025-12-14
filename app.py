@@ -9,6 +9,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/executive-summary')
+def executive_summary():
+    return render_template('executive_summary_report.html')
+
 @app.route('/digital-performance-report')
 def digital_performance_report():
     return render_template('digital_performance_report.html')

@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Handle navigation between different reports
             if (viewName === 'awareness') {
                 window.location.href = isGitHubPages ? basePath + '/index.html' : '/';
+            } else if (viewName === 'executive') {
+                window.location.href = basePath + '/executive-summary' + htmlExt;
             } else if (viewName === 'digital') {
                 window.location.href = basePath + '/digital-performance-report' + htmlExt;
             } else if (viewName === 'media') {
@@ -132,6 +134,8 @@ function setActiveTab() {
     
     if (path === '/' || path === '/index.html' || path.includes('index')) {
         document.getElementById('btn-awareness')?.classList.add('primary');
+    } else if (path.includes('executive-summary')) {
+        document.getElementById('btn-executive')?.classList.add('primary');
     } else if (path.includes('digital')) {
         document.getElementById('btn-digital')?.classList.add('primary');
     } else if (path.includes('media-performance')) {
