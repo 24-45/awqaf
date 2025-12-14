@@ -1,0 +1,304 @@
+/* =========================================
+   PDF Export Styles - A4 Format
+   ========================================= */
+
+/* A4 Page Dimensions */
+:root {
+    --a4-width: 210mm;
+    --a4-height: 297mm;
+    --page-margin: 15mm;
+    --content-width: calc(var(--a4-width) - 2 * var(--page-margin));
+    --content-height: calc(var(--a4-height) - 2 * var(--page-margin));
+}
+
+/* PDF Container */
+.pdf-report-container {
+    width: var(--a4-width);
+    margin: 0 auto;
+    background: white;
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* Single A4 Page */
+.a4-pdf-page {
+    width: var(--a4-width);
+    min-height: var(--a4-height);
+    padding: var(--page-margin);
+    background: white;
+    position: relative;
+    page-break-after: always;
+    break-after: page;
+    box-sizing: border-box;
+}
+
+.a4-pdf-page:last-child {
+    page-break-after: auto;
+}
+
+/* Section Divider (Green Page) */
+.pdf-section-divider {
+    width: var(--a4-width);
+    height: var(--a4-height);
+    background: linear-gradient(135deg, #00502F 0%, #006838 50%, #003d24 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    page-break-after: always;
+    break-after: page;
+    box-sizing: border-box;
+}
+
+.pdf-section-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.divider-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.divider-logo-circle {
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.divider-logo-circle img {
+    width: 60px;
+    height: auto;
+}
+
+.divider-section-number {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.8;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.divider-section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.divider-section-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.85;
+}
+
+.divider-gold-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.divider-gold-line .line {
+    width: 50px;
+    height: 2px;
+    background: #C6A664;
+}
+
+.divider-gold-line .diamond {
+    width: 10px;
+    height: 10px;
+    background: #C6A664;
+    transform: rotate(45deg);
+}
+
+/* Page Header (for content pages) */
+.pdf-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #00502F;
+    margin-bottom: 12px;
+}
+
+.pdf-header-logo {
+    width: 35px;
+    height: auto;
+}
+
+.pdf-header-title {
+    font-size: 0.85rem;
+    color: #00502F;
+    font-weight: 600;
+}
+
+.pdf-header-page {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+/* Page Footer */
+.pdf-page-footer {
+    position: absolute;
+    bottom: var(--page-margin);
+    left: var(--page-margin);
+    right: var(--page-margin);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.7rem;
+    color: #9ca3af;
+}
+
+/* Content styling for PDF */
+.pdf-content-area {
+    /* Leave space for footer */
+    padding-bottom: 25mm;
+}
+
+/* Override existing styles for PDF mode */
+.pdf-mode .mi-section,
+.pdf-mode .exec-section,
+.pdf-mode .digital-section {
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 1rem 0 !important;
+    border: none !important;
+}
+
+.pdf-mode .study-hero,
+.pdf-mode .exec-hero,
+.pdf-mode .digital-hero {
+    display: none !important;
+}
+
+/* Cards and boxes - prevent breaking */
+.pdf-mode .stereotype-card-new,
+.pdf-mode .knowledge-gap-card,
+.pdf-mode .message-card,
+.pdf-mode .segment-card,
+.pdf-mode .frame-card,
+.pdf-mode .trait-card,
+.pdf-mode .engagement-card,
+.pdf-mode .trust-card,
+.pdf-mode .scenario-card,
+.pdf-mode .recommendation-card,
+.pdf-mode .finding-card,
+.pdf-mode .objective-card,
+.pdf-mode .problem-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Grids - adjust for A4 width */
+.pdf-mode .stereotypes-grid-new,
+.pdf-mode .knowledge-gaps-grid,
+.pdf-mode .messages-grid,
+.pdf-mode .segments-grid,
+.pdf-mode .frames-grid,
+.pdf-mode .traits-grid,
+.pdf-mode .engagement-grid,
+.pdf-mode .trust-analysis-grid,
+.pdf-mode .scenarios-comparison,
+.pdf-mode .recommendations-grid {
+    gap: 1rem !important;
+}
+
+/* Section headers */
+.pdf-mode .section-header-modern {
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Tables */
+.pdf-mode table {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    font-size: 0.85rem;
+}
+
+/* Charts */
+.pdf-mode .chart-container,
+.pdf-mode .graph-container {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    max-height: 200mm;
+    overflow: hidden;
+}
+
+/* Print Media Query */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+    
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background: white !important;
+    }
+    
+    .pdf-section-divider {
+        background: linear-gradient(135deg, #00502F 0%, #006838 50%, #003d24 100%) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    .print-controls,
+    .no-print {
+        display: none !important;
+    }
+    
+    .a4-pdf-page,
+    .pdf-section-divider {
+        box-shadow: none !important;
+        margin: 0 !important;
+    }
+}
+
+/* Screen viewing styles */
+@media screen {
+    body.pdf-view {
+        background: #525659;
+        padding: 20px;
+    }
+    
+    .pdf-report-container {
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+    
+    .a4-pdf-page {
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    
+    .pdf-section-divider {
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+    }
+}

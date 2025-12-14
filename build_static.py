@@ -42,6 +42,7 @@ def build_static_site():
         ('digital_performance_report.html', 'digital-performance-report.html'),
         ('media_performance_report.html', 'media-performance-report.html'),
         ('media_image_report.html', 'media-image-report.html'),
+        ('full_report_pdf.html', 'full-report-pdf.html'),
     ]
     
     # Render each page
@@ -57,6 +58,7 @@ def build_static_site():
             html_content = html_content.replace("window.location.href = '/digital-performance-report'", "window.location.href = 'digital-performance-report.html'")
             html_content = html_content.replace("window.location.href = '/media-performance-report'", "window.location.href = 'media-performance-report.html'")
             html_content = html_content.replace("window.location.href = '/media-image-report'", "window.location.href = 'media-image-report.html'")
+            html_content = html_content.replace("window.location.href = '/full-report-pdf'", "window.location.href = 'full-report-pdf.html'")
             
             # Write output file
             output_path = OUTPUT_DIR / output_name
