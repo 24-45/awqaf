@@ -110,15 +110,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Find top peaks (top 3 days with highest counts)
+        // Find top peaks (top 3 days with highest counts) with event descriptions
+        const peakEventsMap = {
+            '2025-01-23': { title: 'مؤتمر ليب 2025', description: 'إطلاق منصة "أوقاف للخدمات الرقمية" خلال مؤتمر ليب 2025' },
+            '2025-08-12': { title: 'استقبال أمير الشرقية', description: 'استقبال أمير المنطقة الشرقية لمنسوبي هيئة الأوقاف والإشادة بدعم القيادة' },
+            '2025-08-11': { title: 'التقرير السنوي', description: 'إصدار التقرير السنوي للهيئة ومبادرة TEDxKAU بمشاركة مجتمعية فاعلة' },
+            '2024-12-25': { title: 'الخدمات الرقمية', description: 'إتاحة خدمات الهيئة الرقمية عبر تطبيق توكلنا' },
+            '2024-12-30': { title: 'مذكرة تفاهم', description: 'توقيع مذكرة تفاهم مع وزارة الثقافة لتعزيز التعاون في المجالات المشتركة' },
+            '2025-10-18': { title: 'لائحة إنشاء الأوقاف', description: 'إصدار لائحة تنظيم إنشاء الأوقاف وجمع التبرعات بآليات شفافة' },
+            '2025-02-06': { title: 'جدول المخالفات', description: 'إعلان جدول المخالفات والجزاءات للائحة تنظيم أعمال النظارة' },
+            '2025-04-22': { title: 'مبادئ حوكمة الأوقاف', description: 'نشر مسودة مبادئ حوكمة الأوقاف والشفافية والمساءلة' }
+        };
+        
         const sortedByCount = [...series].sort((a, b) => b.count - a.count);
-        const topPeaks = sortedByCount.slice(0, 3).map(item => ({
-            date: item.date,
-            label: formatDay(item.date),
-            count: item.count,
-            title: `ذروة النشر`,
-            description: `تم نشر ${item.count} خبر في هذا اليوم`
-        }));
+        const topPeaks = sortedByCount.slice(0, 3).map(item => {
+            const eventInfo = peakEventsMap[item.date] || { 
+                title: 'ذروة النشر', 
+                description: `تم نشر ${item.count} خبر في هذا اليوم` 
+            };
+            return {
+                date: item.date,
+                label: formatDay(item.date),
+                count: item.count,
+                title: eventInfo.title,
+                description: eventInfo.description
+            };
+        });
 
         // Calculate coverage days and zero days
         const coverageDays = series.filter(item => item.count > 0).length;
