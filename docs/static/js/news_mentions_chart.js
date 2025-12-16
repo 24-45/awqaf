@@ -120,9 +120,21 @@ document.addEventListener('DOMContentLoaded', () => {
             description: `تم نشر ${item.count} خبر في هذا اليوم`
         }));
 
+        // Calculate coverage days and zero days
+        const coverageDays = series.filter(item => item.count > 0).length;
+        const zeroDays = series.filter(item => item.count === 0).length;
+        const highIntensityDays = series.filter(item => item.count >= 15).length;
+
         return {
             series,
-            summary: { total: totalCount, average: Math.round(totalCount / series.length), peak: maxCount },
+            summary: { 
+                total_mentions: totalCount, 
+                daily_average: (totalCount / series.length).toFixed(1), 
+                peak: maxCount,
+                coverage_days: coverageDays,
+                zero_days: zeroDays,
+                high_intensity_days: highIntensityDays
+            },
             top_peaks: topPeaks,
             top_months: [],
             top_topics: [],
