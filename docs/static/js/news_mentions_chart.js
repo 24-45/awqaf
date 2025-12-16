@@ -149,11 +149,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error('API not available');
             return await response.json();
         } catch (e) {
-            // Fallback to CSV
-            const csvResponse = await fetch(getBasePath() + '/static/data/mentions_trend.csv');
-            if (!csvResponse.ok) throw new Error('تعذر تحميل بيانات النشر الصحفي');
-            const csvText = await csvResponse.text();
-            return parseCSVToPayload(csvText);
+            // Fallback to CSV - try multiple paths
+            const basePath = getBasePath();
+            const paths = [
+                basePath + '/static/data/mentions_trend.csv',
+                './static/data/mentions_trend.csv',
+                'static/data/mentions_trend.csv'
+            ];
+            
+            for (const path of paths) {
+                try {
+                    const csvResponse = await fetch(path);
+                    if (csvResponse.ok) {
+                        const csvText = await csvResponse.text();
+                        return parseCSVToPayload(csvText);
+                    }
+                } catch (err) {
+                    console.log('Failed to load from:', path);
+                }
+            }
+            throw new Error('تعذر تحميل بيانات النشر الصحفي');
         }
     };
 
